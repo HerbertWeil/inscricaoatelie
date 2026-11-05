@@ -417,6 +417,60 @@
           <p class="text-xs text-gray-400 mt-1">Usaremos para entrar em contato sobre os projetos que você padrinhar.</p>
         </div>
 
+                <!-- Aviso de Privacidade (LGPD) -->
+        <div>
+          <details class="group bg-slate-50 border border-gray-200 rounded-lg">
+            <summary class="flex items-center justify-between cursor-pointer select-none p-4 text-sm font-semibold text-brand-royal list-none [&::-webkit-details-marker]:hidden">
+              <span>Como meus dados serão usados?</span>
+              <svg class="w-4 h-4 text-brand-royal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+
+            <div class="px-4 pb-4 text-xs sm:text-sm text-brand-textMuted leading-relaxed space-y-3 border-t border-gray-200 pt-3">
+              <p>
+                Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD)</strong>, informamos como tratamos os dados que você fornece neste formulário.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Quem é o responsável:</strong> o gabinete da vereadora Amanda Areval, de Vilhena/RO, é o responsável pelo tratamento dos seus dados (controlador).
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Dados coletados:</strong> nome completo, profissão, bairro, áreas de interesse e número de WhatsApp.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Finalidade:</strong> seus dados serão mantidos em sigilo e utilizados <strong>apenas</strong> para organizar os trabalhos internamente no gabinete da vereadora Amanda Areval e para entrar em contato com você, inclusive por WhatsApp, sobre os projetos das áreas escolhidas e sobre sua participação como voluntário(a).
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Compartilhamento:</strong> não haverá divulgação nem compartilhamento dos seus dados com terceiros sem o seu consentimento prévio e específico. Os dados ficam armazenados em ambiente com acesso restrito à equipe do gabinete.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Base legal:</strong> o tratamento é realizado com base no seu <strong>consentimento</strong> (art. 7º, I, da LGPD), que você manifesta ao marcar a caixa de aceite abaixo e enviar o formulário.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Por quanto tempo guardamos:</strong> pelo período em que você atuar como voluntário(a) ou enquanto for necessário para as finalidades acima, e serão eliminados quando você pedir ou quando deixarem de ser necessários.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Seus direitos (art. 18 da LGPD):</strong> você pode, a qualquer momento e gratuitamente, solicitar a confirmação de que tratamos seus dados, acesso, correção de dados incompletos ou desatualizados, anonimização, bloqueio ou eliminação, informações sobre compartilhamento e a <strong>revogação do consentimento</strong>, sem prejuízo da legalidade do tratamento já realizado.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Como exercer seus direitos:</strong> basta enviar uma mensagem para o contato do gabinete: <strong>amandaarevalvilhena@gmail.com</strong> (WhatsApp ou e-mail).
+              </p>
+            </div>
+          </details>
+
+          <!-- Checkbox de consentimento -->
+          <label class="flex items-start gap-3 mt-3 cursor-pointer text-xs sm:text-sm text-brand-textMuted leading-snug">
+            <input type="checkbox" id="consentimento" name="consentimento" required class="mt-0.5 w-4 h-4 shrink-0 accent-[#0A2540]">
+            <span>Li e concordo com o tratamento dos meus dados pessoais conforme descrito acima. <span class="text-red-500">*</span></span>
+          </label>
+        </div>
+
         <!-- Submit Button (CTA) -->
         <button 
           type="submit" 
@@ -532,6 +586,7 @@
       formData.append('bairro', document.getElementById('bairro').value.trim());
       formData.append('areas_interesse', selectedAreas.join(', '));
       formData.append('whatsapp', whatsappInput.value);
+      formData.append('consentimento', 'Sim - ' + new Date().toLocaleString('pt-BR'));
 
       // Envio: no-cors evita bloqueio do navegador com o Google Apps Script
       fetch(URL_DO_SCRIPT, {
