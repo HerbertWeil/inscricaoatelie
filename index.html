@@ -153,7 +153,7 @@
           Devido à exoneração de boa parte da equipe da vereadora Amanda pela presidência da Câmara, estamos abrindo as portas de nosso gabinete para que a comunidade ajude a parlamentar a gerir e executar as dezenas de projetos que estão em andamento (<strong class="text-brand-royal">são quase 80!</strong>).
         </p>
         <p>
-          Preencha o breve formulário abaixo, escolha até <strong class="text-brand-royal">2 áreas</strong> de seu maior interesse, e enviaremos os projetos em andamento que temos nestas áreas para definirmos qual deles <strong class="text-brand-royal">você será o padrinho/gestor oficial</strong>. Será um mandato participativo, popular e ainda maior, com sua ajuda.
+          Preencha o breve formulário abaixo, escolha até <strong class="text-brand-royal">3 áreas</strong> de seu maior interesse, e enviaremos os projetos em andamento que temos nestas áreas para definirmos qual deles <strong class="text-brand-royal">você será o padrinho/gestor oficial</strong>. Será um mandato participativo, popular e ainda maior, com sua ajuda.
         </p>
         <img src="amanda.jpg" alt="Vereadora Amanda Areval" class="block w-full max-h-96 object-cover object-top rounded-lg shadow-md">
         <!-- Quote Box -->
@@ -257,10 +257,10 @@
               Áreas de Interesse <span class="text-red-500">*</span>
             </label>
             <span id="checkboxCounter" class="text-xs font-semibold text-brand-goldHover bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
-              0 de 2 selecionadas
+              0 de 3 selecionadas
             </span>
           </div>
-          <p class="text-xs text-gray-500 mb-3">Escolha no máximo 2 áreas com as quais você mais se identifica.</p>
+          <p class="text-xs text-gray-500 mb-3">Escolha no máximo 3 áreas com as quais você mais se identifica.</p>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="areasGroup">
             
@@ -518,7 +518,7 @@
         const checkedCount = document.querySelectorAll('input[name="area"]:checked').length;
         
         // Update Counter UI
-        checkboxCounter.textContent = `${checkedCount} de 2 selecionadas`;
+        checkboxCounter.textContent = `${checkedCount} de 3 selecionadas`;
         
         if (checkedCount > 0) {
           areaError.classList.add('hidden');
@@ -527,7 +527,7 @@
         // Disable unchecked if limit of 2 is reached
         checkboxes.forEach(box => {
           if (!box.checked) {
-            box.disabled = checkedCount >= 2;
+            box.disabled = checkedCount >= 3;
           }
         });
       });
@@ -598,7 +598,7 @@
         showStatus('✅Inscrição enviada com sucesso! Quando a população participa das políticas públicas de forma ativa a comunidade melhora, o poder público fica mais assertivo e as transformações alcançam quem mais precisa, de verdade. Em breve entraremos em contato pelo WhatsApp para você escolher qual projeto deseja apadrinhar, especificamente, dentro da sua área de interesse. Este movimento do gabinete da vereadora Amanda Areval é pioneiro e busca mostrar a força de quem deseja resultados práticos com muito trabalho, eficiência e respeito! Seguimos!', true);
         form.reset();
         checkboxes.forEach(box => { box.disabled = false; });
-        checkboxCounter.textContent = '0 de 2 selecionadas';
+        checkboxCounter.textContent = '0 de 3 selecionadas';
         resetButton();
       })
       .catch(() => {
